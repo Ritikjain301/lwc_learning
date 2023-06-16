@@ -1,0 +1,33 @@
+<template>
+  <lightning-card title="Choose Product Category Name" icon-name="standard:account">
+    
+    <table>
+    <tr>
+    <td>
+    
+    <div class="slds-m-around_medium">
+    <select class="slds-select" onchange={productFetch}>
+    <option>Select Product Category</option>
+    <template for:each ={prodCate} for:item="item">
+    <option key={item.Id} value={item.Id}>{item.Name}</option>
+    </template>
+    </select>
+    </div>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <div class="slds-m-around_medium">
+    <select class="slds-select" >
+    <option >Select Product</option>
+    <template for:each ={prod} for:item="item">
+    <option key={item.Id} value={item.Name}>{item.Name}</option>
+    </template>
+    </select>
+    </div>
+    </td>
+    </tr>
+    
+    </table>
+    </lightning-card>
+</template>

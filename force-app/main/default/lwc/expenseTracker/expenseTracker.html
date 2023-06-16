@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Expense Tracker">
+        <div class="slds-p-around_medium">
+
+            
+            <c-expense-form onexpenseadded={handleExpenseAdded}></c-expense-form>
+        </div>
+        <template for:each={expenses} for:item="expense" for:index="index">
+            <tr key={expense.Id}>
+                <td>{expense.Name}</td>
+                <td>${expense.Amount}</td>
+                <td>
+                    <lightning-button-group>
+                        <lightning-button-icon icon-name="utility:edit" alternative-text="Edit" title="Edit" onclick={handleEditExpense} value={index}></lightning-button-icon>
+                        <lightning-button-icon icon-name="utility:delete" alternative-text="Delete" title="Delete" onclick={handleDeleteExpense} value={index}></lightning-button-icon>
+                    </lightning-button-group>
+                </td>
+            </tr>
+        </template>
+    </lightning-card>
+    
+</template>

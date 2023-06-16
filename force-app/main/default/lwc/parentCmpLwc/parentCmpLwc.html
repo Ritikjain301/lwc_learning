@@ -1,0 +1,58 @@
+<template>
+    <lightning-card>
+        
+    <div class="slds-m-bottom--medium">
+        <div class="slds-clearfix">
+            <lightning-button variant="brand" label="Save" title="Primary action" onclick={handleClick} class="slds-float_right"></lightning-button>
+    </div>
+            <c-display-products-on-prod-category-id onmyeventdemo={handleChangeAction}> </c-display-products-on-prod-category-id>
+        
+        </div>
+        
+        <br/><br/>
+
+        <div class="slds-m-around_large">
+            <div if:false={isLoaded} class="slds-is-relative">
+               <lightning-spinner
+                   alternative-text="Loading..." variant="brand">
+               </lightning-spinner>
+           </div>
+       </div>
+
+ <template if:true={showProductRecords}>
+          
+            <lightning-card title="List of Products" custom-icon="custom:icon13">
+             <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+                
+                
+
+           <thead>
+               <tr>
+                   <th>Name</th>
+                   <th>Color</th>
+                   <th>Record Type</th>
+                   <th>Size</th>
+                   <th>Retail Price</th>
+                   <th>WholeSale Price</th>
+                   <th>MOQ</th>
+                </tr>
+           </thead> 
+            <template for:each={records} for:item='prodItem'>
+                <tr key={prodItem.Id}>
+                    <td>{prodItem.Name}</td>
+                    <td>{prodItem.Color__c}</td>
+                    <td>{prodItem.RecordType.Name}</td>
+                    <td>{prodItem.Size__c}</td>
+                    <td>{prodItem.Retail_Price__c}</td>
+                    <td>{prodItem.Wholesale_Price__c}</td>
+                    <td> <lightning-input type="number" name="input2" label="MOQ" value={prodItem.MOQ__c} onchange = {handleMOQChange} variant ="label-hidden"></lightning-input></td>
+                </tr>
+            </template>
+        </table>
+ 
+    </lightning-card>
+    </template>
+
+    </lightning-card>
+    
+</template>

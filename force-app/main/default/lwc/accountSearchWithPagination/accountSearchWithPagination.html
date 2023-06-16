@@ -1,0 +1,49 @@
+<template>
+    <lightning-card  title="Account Search">
+        <lightning-layout multiple-rows="true" vertical-align="end">
+           
+            <lightning-layout-item size="4" padding="around-small">
+                <lightning-input type="text" label="Enter Account Name" value={key} onchange={updatekey}></lightning-input>
+                    
+        </lightning-layout-item>
+
+            <lightning-layout-item size="2" padding="around-small"> 
+                <lightning-button variant="brand" label="Search" onclick={handleSearch} style="border-radius: 1vw"></lightning-button>
+            </lightning-layout-item>
+            <lightning-dynamic-icon 
+            template if:true={key2}      
+            type="eq"
+            option="play"
+            alternative-text="Recording in progress">
+        </lightning-dynamic-icon>
+            <lightning-layout-item size="12" padding="around-small">
+                <template if:true={showTable}>
+                    <lightning-datatable key-field="id" data={accounts} columns={cols}
+                    show-row-number-column
+                    onsave={handleSave}
+                    draft-values={saveDraftValue}
+                    hide-checkbox-column
+                   
+                    ></lightning-datatable>
+                </template>
+            </lightning-layout-item>
+
+        </lightning-layout>
+        <div class="slds-m-vertical_medium">
+            <h1 class="slds-text-heading_small">Astonous Cloud Solution Address</h1>
+            <p class="slds-text-body_regular">This component formats an address and automatically links it to Google Maps.</p>
+        </div>
+    
+        <lightning-formatted-address
+            
+            street="40, Anant Bajaj Ideas Hub"
+            city="Jaipur"
+            country="India"
+            province="Rajasthan"
+            postal-code="302006"
+        ></lightning-formatted-address>
+        <div class="slds-p-around_medium">
+            <p><lightning-formatted-url value="https://www.astonous.com/" tooltip="https://astonous.com" label="Visit Astonous Cloud Solutions" target="_blank"></lightning-formatted-url></p>
+        </div>
+    </lightning-card>
+</template>

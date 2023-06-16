@@ -1,0 +1,19 @@
+<template>
+    <lightning-card  title="Account Search">
+        <lightning-layout multiple-rows="true" vertical-align="end">
+            <lightning-layout-item size="4" padding="around-small">
+                    <lightning-input type="text" label="Enter Account NAME" value={key} onchange={updatekey}></lightning-input>
+                    <lightning-input type="text" label="Enter Account Name" value={key} onchange={updatekey} ></lightning-input>
+
+            </lightning-layout-item>
+            <lightning-layout-item size="2" padding="around-small"> 
+                <lightning-button variant="brand" label="Search" onclick={handleSearch}></lightning-button>
+            </lightning-layout-item>
+            <lightning-layout-item size="12" padding="around-small">
+                <lightning-datatable key-field="id" data={accounts} columns={cols}></lightning-datatable>
+
+            </lightning-layout-item>
+
+        </lightning-layout>
+    </lightning-card>
+</template>

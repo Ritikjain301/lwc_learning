@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="HOW TO DISPLAY THE CONTACT BASED ON ACCOUNT IN LWC">
+        <div class="slds slds-p-horizontal--medium">
+            <div class="slds-grid slds-wrap">
+            <div class="slds-col slds-size_4-of-12 slds-m-bottom--medium">
+                <lightning-input type="Search" placeholder="Search..." value={accountName} name="accountName" class="accountName" onchange={handleChangeAccName}></lightning-input>
+            </div>
+            <div class="slds-col slds-size_6-of-12 slds-m-top--medium" style="margin-top: 19px; margin-left: 10px;">
+                <lightning-button label="Search Account Name" size="small" variant="brand" onclick={handleAccountSearch} icon-name="utility:search" icon-position="right"></lightning-button>
+            </div>
+            </div>
+            <!-- <span> tag is an inline container used to mark up a part of a text, or a part of a document. -->
+            <h2> Account Name:- <span><strong>{currentAccountName}</strong></span></h2><br/>
+            <h3><strong><span style="color:brown;">{dataNotFound}</span></strong></h3><br/>
+            <h2 class="slds-m-bottom--x-small" style="color: darkslateblue; font-weight:bold;">Displaying Contact Record Based on Account Name</h2>
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered" border="1" cellspacing="0" cellpadding="0" bordercolor="#ccc" style="border-collapse:collapse;">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>phone</th>
+                        <th>Description</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={records} for:item="conItem">
+                        <tr key={conItem.Id}>
+                            <td>{conItem.FirstName}</td>
+                            <td>{conItem.LastName}</td>
+                            <td>{conItem.Phone}</td>
+                            <td>{conItem.Account.Name}</td>
+  
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+        <br/><br/>
+    </lightning-card>
+    
+</template>

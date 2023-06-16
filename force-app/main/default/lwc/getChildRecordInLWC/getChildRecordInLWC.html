@@ -1,0 +1,22 @@
+<template>
+    <lightning-button label={buttonLabel}
+  variant="brand"
+  onclick={handleShow}>
+  </lightning-button>
+
+  <template if:true={showDatatable}>
+  <lightning-datatable
+                     key-field="id"
+                     data={productCategoryData}
+                     columns={column1}
+                     hide-checkbox-column>
+             </lightning-datatable>
+  
+             <lightning-datatable
+             key-field="id"
+             data={productData}
+             columns={column2}
+             hide-checkbox-column>
+     </lightning-datatable>    
+    </template>
+</template>

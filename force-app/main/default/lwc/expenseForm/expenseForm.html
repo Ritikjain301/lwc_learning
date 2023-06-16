@@ -1,0 +1,36 @@
+<template>
+    <div class="slds-p-around_medium">
+        <div class="slds-p-around_medium">
+
+        
+    <lightning-card title="Expenses Entry Form">
+        <lightning-input 
+            label="Expense Type" 
+            value={expenseType}
+            onchange={handleTypeChange}
+        ></lightning-input>
+        <lightning-input 
+            label="Amount" 
+            value={amount}
+            onchange={handleAmountChange}
+        ></lightning-input>
+        <lightning-input 
+            label="Date" 
+            type="date"
+            value={expenseDate}
+            onchange={handleDateChange}
+        ></lightning-input>
+        <lightning-textarea
+            label="Description"
+            value={description}
+            onchange={handleDescriptionChange}
+        ></lightning-textarea>
+        <lightning-button
+            label="Add Expense"
+            value="brand"
+            onclick={handleAddExpense}
+        ></lightning-button>
+    </lightning-card>
+</div>
+</div>
+</template>
