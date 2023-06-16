@@ -7,7 +7,7 @@ export default class AccountSearchWithPagination extends LightningElement {
     key2=false;
     key3 = false;
 
-    showTable=false;
+    showTable=false;    
     @track accounts;
     saveDraftValue = [];
     accountid;
