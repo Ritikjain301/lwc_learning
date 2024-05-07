@@ -48,28 +48,3 @@ export default class GarmentsHub extends LightningElement {
         })
     }
    }
-
-//     @track columns = [
-//         { type: 'text',
-//         label: 'Product Categories',
-//         fieldName: 'Name',
-//         type: 'url',
-//         typeAttributes: {
-//           label: {
-//             fieldName: 'Name'
-//           },
-//           tooltip: 'Name',
-//           target: '_blank'
-//         }
-//       }
-//     ];
-//     @track productList;
-
-//     @wire(getProducts) wiredProducts({data, error}) {
-//         if (data) {
-//             this.productList = data;
-//         } else if (error) {
-//             console.log(error);
-//         }
-//     }
-// }
